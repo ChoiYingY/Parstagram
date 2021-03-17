@@ -121,9 +121,65 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6Qw-GU-7kM">
+                                <rect key="frame" x="0.0" y="56" width="375" height="591"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="410" id="EvR-Dm-wn7" customClass="PostCell" customModule="Parstagram" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="410"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EvR-Dm-wn7" id="5KO-mV-5UQ">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="410"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mGP-3l-xux">
+                                                    <rect key="frame" x="8" y="8" width="359" height="365"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="mGP-3l-xux" secondAttribute="height" multiplier="359:365" id="FqJ-0p-iMZ"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ufC-4f-idd">
+                                                    <rect key="frame" x="8" y="381" width="160" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Here is a beautiful photo!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hHW-zZ-3B3">
+                                                    <rect key="frame" x="176" y="381" width="191" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="mGP-3l-xux" secondAttribute="trailing" constant="8" id="0UX-Ec-JI2"/>
+                                                <constraint firstItem="mGP-3l-xux" firstAttribute="leading" secondItem="5KO-mV-5UQ" secondAttribute="leading" constant="8" id="39R-Yh-0iw"/>
+                                                <constraint firstItem="ufC-4f-idd" firstAttribute="top" secondItem="mGP-3l-xux" secondAttribute="bottom" constant="8" id="6Wu-kG-yaf"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="hHW-zZ-3B3" secondAttribute="bottom" constant="8" id="6hR-be-vGY"/>
+                                                <constraint firstItem="hHW-zZ-3B3" firstAttribute="leading" secondItem="ufC-4f-idd" secondAttribute="trailing" constant="8" id="79a-M6-plz"/>
+                                                <constraint firstItem="mGP-3l-xux" firstAttribute="top" secondItem="5KO-mV-5UQ" secondAttribute="top" constant="8" id="9eW-yC-L0s"/>
+                                                <constraint firstItem="ufC-4f-idd" firstAttribute="leading" secondItem="5KO-mV-5UQ" secondAttribute="leading" constant="8" id="Uu1-33-3gJ"/>
+                                                <constraint firstAttribute="trailing" secondItem="hHW-zZ-3B3" secondAttribute="trailing" constant="8" id="sZY-2C-DrW"/>
+                                                <constraint firstItem="hHW-zZ-3B3" firstAttribute="top" secondItem="mGP-3l-xux" secondAttribute="bottom" constant="8" id="whg-pe-Tlz"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="captionLabel" destination="hHW-zZ-3B3" id="zDS-9T-sfM"/>
+                                            <outlet property="photoView" destination="mGP-3l-xux" id="qkg-tz-kKO"/>
+                                            <outlet property="usernameLabel" destination="ufC-4f-idd" id="01q-ll-bye"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="DSc-O4-cXm"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="DSc-O4-cXm" firstAttribute="trailing" secondItem="6Qw-GU-7kM" secondAttribute="trailing" id="320-3J-12N"/>
+                            <constraint firstItem="6Qw-GU-7kM" firstAttribute="leading" secondItem="DSc-O4-cXm" secondAttribute="leading" id="S8F-Dd-Jbe"/>
+                            <constraint firstItem="DSc-O4-cXm" firstAttribute="bottom" secondItem="6Qw-GU-7kM" secondAttribute="bottom" id="TTT-fT-EHX"/>
+                            <constraint firstItem="6Qw-GU-7kM" firstAttribute="top" secondItem="DSc-O4-cXm" secondAttribute="top" id="qWZ-9W-2We"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="isw-k2-c9G">
                         <barButtonItem key="rightBarButtonItem" title="+" image="insta_camera_btn" id="FdG-Cp-2Hk">
@@ -133,6 +189,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="tableView" destination="6Qw-GU-7kM" id="0XI-64-Z3x"/>
                         <segue destination="kIa-60-DF5" kind="presentation" id="lNo-Vu-ndP"/>
                     </connections>
                 </viewController>
