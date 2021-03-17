@@ -23,13 +23,13 @@ class LoginViewController: UIViewController {
         let username = usernameField.text!
         let password = passwordField.text!
         
-        PFUser.logInWithUsername(inBackground: username, password: password) {
-          (user: PFUser?, error: Error?) -> Void in
-          if user != nil {
-            self.performSegue(withIdentifier: "loginSegue", sender: nil)
-          } else {
-            print("Error: \(error?.localizedDescription)")
-          }
+        PFUser.logInWithUsername(inBackground: username, password: password)
+            { (user, error) in
+            if user != nil {
+                self.performSegue(withIdentifier: "loginSegue", sender: nil)
+            } else {
+                print("Error: \(String(describing: error?.localizedDescription))")
+            }
         }
     }
     
@@ -42,7 +42,7 @@ class LoginViewController: UIViewController {
                 if success {
                     self.performSegue(withIdentifier: "loginSegue", sender: nil)
                 } else {
-                    print("Error: \(error?.localizedDescription)")
+                    print("Error: \(String(describing: error?.localizedDescription))")
                 }
             }
         }
